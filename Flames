@@ -1,0 +1,38 @@
+/*1.Write a program to implement the FLAMES game.*/
+#include <stdio.h>
+#include <string.h>
+int main()
+{
+    char s1[60],s2[60];
+    scanf("%[^\n]s",s1);
+    scanf("%s",s2);
+    int s=0;
+    for(int i=0;i<strlen(s1);i++){
+        // int s = 0;
+        for(int j=0;j<strlen(s2);j++){
+            if(s1[i]=='0' || s2[j]=='0') continue;
+            if(s1[i] == s2[j]){
+                s1[i] = s2[j] = '0';
+                s = s+2;
+                continue;                
+            } 
+        }
+    }
+    
+    int count = strlen(s1) + strlen(s2) - s;
+    
+    char flames[] = "FLAMES";
+    int len = 6;int idx;
+    while(len>1){
+         idx= (idx+count-1)%len;
+        if(idx >= 0){
+            for(int i = idx; i<len-1;i++){
+                flames[i] = flames[i+1];
+            }
+        }
+        len--;
+    }
+    
+    printf("%c",flames[0]);
+    return 0;
+}

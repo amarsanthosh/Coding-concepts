@@ -1,0 +1,37 @@
+/*3. Given a string containing brackets (){}[] check whether it is balanced or not. If some other
+characters are present, it is considered invalid.
+Input: [{}]()
+Output: Balanced
+Input: ([]{}-
+Output: Invalid */
+#include <stdio.h>
+#include <string.h>
+int main()
+{
+    char s[100];
+    scanf("%[^\n]s",s);
+    int a =0,b=0,c=0;
+    
+    for(int i=0;i<strlen(s);i++){
+        switch(s[i]){
+            case '(':
+                a++;break;
+            case ')':
+                a--;break;
+            case ']':
+                b--;break;
+            case '[':
+                b++;break;
+            case '{':
+                c++;break;
+            case '}':
+                c--;break;
+            default:
+                printf("Invalid");
+                return 0;
+        }
+    }
+    if(a==0 && b==0 && c==0) printf("Balanced");
+    else printf("Not Balanced");
+    return 0;
+}
