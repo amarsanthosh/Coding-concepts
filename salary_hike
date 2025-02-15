@@ -1,0 +1,30 @@
+/*Input Format
+The first line of input consists of an integerrepresenting the hike rating in percentage.
+The second line consists of an integer representing the old salary.
+Output Format
+The output displays a float value epresenting the updated salary, rounded to two decimal places.
+
+Sample 1 Input
+4
+12000
+Sample 1 Output
+12480.00 */
+#include <stdio.h>
+
+int main()
+{
+    float hike;
+    scanf("%f",&hike);
+    float sal;
+    scanf("%f",&sal);
+    
+    float h_amnt;
+    
+    h_amnt = (sal/100)*hike;
+    
+    h_amnt = h_amnt +sal;
+    printf("%.2f",h_amnt);
+    
+
+    return 0;
+}

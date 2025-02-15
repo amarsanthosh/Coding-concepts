@@ -1,0 +1,47 @@
+/*Write a program using functions to find the number of iterations to transform the given number into a palindrome.
+To convert the number into a palindrome, the reverse and add process is carried out. The reverse-and-add function must produce the sum of a number and the number formed by reversing the order of its digits. Write another function called reverse-digits to reverse the number and Write another function called “Palindrome” to check whether the given number is a palindrome.
+
+If the sum exceeds 4294967295 - print not palindrome along with the number of iterations.
+Input Format
+The input consists of a number.
+Output Format
+The output prints the palindrome number and the number of iterations required to convert the number into a palindrome separated by a space.
+Sample 1 Input
+57
+Sample 1 Output
+363 2
+Sample 2 Input
+9884
+Sample 2 Output
+Not Palindrome 15*/
+#include <stdio.h>
+
+long reverse(int a){
+    long sum = 0;
+    while(a){
+        int r = a%10;
+        sum = sum*10 + r;
+        a=a/10;
+    }
+    return sum;
+}
+
+int is_palindrome(long n){
+    if(n == reverse(n)) return 1;
+    return 0;
+}
+
+int main()
+{
+    long n;
+    scanf("%ld",&n);
+    int c = 0;
+    if(n+reverse(n) > 4294967295) return 0;
+    while(!is_palindrome(n)){
+        c++;
+        if(n >= (4294967295 - reverse(n))) return 0;
+        n = n+reverse(n);
+    }
+    printf("%ld %d",n, c);
+    return 0;
+}
