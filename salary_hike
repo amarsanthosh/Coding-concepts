@@ -3,7 +3,6 @@ The first line of input consists of an integerrepresenting the hike rating in pe
 The second line consists of an integer representing the old salary.
 Output Format
 The output displays a float value epresenting the updated salary, rounded to two decimal places.
-
 Sample 1 Input
 4
 12000
