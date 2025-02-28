@@ -4,7 +4,6 @@ First line has the number of elements the binary array. Second line consists of 
 Output Format
 Output displays the minimum number of swaps required to get all 1s together.
 */
-
 #include <math.h>
 #include <stdio.h>
 #include <limits.h>
