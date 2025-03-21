@@ -1,0 +1,20 @@
+    int numSubarraysWithSum(vector<int>& nums, int goal) {
+        //need to store the prefix_sum in map 
+        //number of (sum-goal) is equal to the number of goals
+
+        int cnt =0, sum = 0;
+        int n = nums.size();
+         unordered_map<int,int> mpp;
+        for(int i=0;i<n;i++){
+            sum = sum + nums[i];
+            int r = sum - goal; 
+            if(mpp.find(r)!=mpp.end()){
+                cnt = cnt + mpp[r];
+            }
+            if(sum==goal){
+                cnt = cnt +1;
+            }
+            mpp[sum]++;
+        }
+        return cnt;
+    }
