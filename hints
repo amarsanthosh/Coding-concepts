@@ -1,0 +1,220 @@
+------- solutions-----------
+
+Arrays:
+-------
+
+2.Two sum -> map, count(target-nums[i]) push else mpp[nums[i]] = i
+
+4.median of sorted array -> put both arrays in a single one, sort, if n is even return add both middle elm and div by 2.0
+
+11.Container With Most Water-> area man
+
+15. 3sum -> sort, for loop for i, then j = i+1,k=n-1, while(j<k) sum==0 then push_beck, to remove the dup use two while loops(k,j), if sum >, k--elsej++; cheack for dup in i also using if(i>0 && nums[i] == nums[i-1]) contnue;
+
+18. 4sum -> same as 3sum
+
+26. remove dup -> i=0;interate from (j=1 -> n)on non dup values nums[i+1] = nums[j];i++;
+
+27. remove ele -> same as above
+
+31. next_permutation() -> keyword:-)) -> from revese see the index on which nums[i] < nums[i+1] , if(ind==-1)return reverse; else reverse interate to ind if(nums[i] > nums[ind] swap() , reverse(nums.begin()+ind+1,nums.end());
+
+34. Find First&Last Position of Element in Sorted Array -> we can do it in multiple ways, in a single loop o(n) we can able to do it...we can use binary search to do it in o(log n)
+
+42. Trapping rain water -> initialize max =0;iterate through and check for max then add it to left[i], reinitialize max iterate in reverse and check for max then add in right[i] in reverse, then another loop for n (trap) check for min in right[i],left[i] then sum it to the ex: trap += left[i] - height[i];
+
+48. Rotate Image -> 1st tanspose the array(swap) , then reverse each array of it(matrix[i].begin(),matrix[i].end())
+
+49. Group Anagrams-> sort each string and use map. sorted_string as key , original as value.
+
+51. N-queens -> dont know
+
+53. Maximum subarray sum -> maxi = INT_MIN; iterate till 'n' ; sum +=nums[i]; if(sum>maxi) maxi = sum ; if(sum < 0) sum = 0; then finally after the loop return 'maxi'; 
+
+54. Spiral Matrix -> use four pointers (left,right,top,bottom) ,while(left<=right && top<=bottom)
+
+56. Merge intrevals -> sort the intrevals, for(0->n) if empty push it to the result, elseif(intrv[i][0] <= result.back()[1]) result.back()[1] = max(result.back()[1], intrv[i][1]); else push to result;  
+
+59. Spiral Matrix II -> dont know
+
+73. Set Matrix Zeroes -> easy, create two vectors as row and column with initial value as '0', then if mat[i][j] == 0,row[i]=0,col[j] = 0, then after in another loop make that col and row as '0'
+
+74. search in a 2D matrix -> dont know
+
+75. Sort Colors -> for this we use 4vectors, 1->n ele, remaining three for storing 0,1,2, interate through the inupt then if(0,1,2) push to respective vector, then push back the ele of these into another vec in order...then replace input with this vec's value
+
+79. Word Search -> dont know
+
+88. Merge Sorted Array -> pop_back() till n(another's size) then push_back that another, then finally sort
+
+108. Convert Sorted Array to Binary Search Tree -> dont know, but easy
+
+118. Pascal's Triangle -> create a function(return 1D vector) for genreate rows, in that initialize ans = 1,then push to result, then for(i=1->rows) ans = (ans * (rows-i))/i;push ans to result.  base function(returns 2d vec) loop from (1->numrows) then ans.push_back(genrows(i));
+
+121. Best Time to Buy and Sell Stock -> initialize mini = prices[0], maxprofit = 0,for(i=1->n) cost = prices[i] - min;maxprofit = max( ,cost) , mini = min( ,prices[i]); at last return maxprofit;
+
+128. Longest Consecutive Sequence -> sort, check for consecutive ness , return the max len;
+
+136. Single Number -> we use map and easily solve this and at last c = i.first ; return c; //no directly ret i.first
+
+150. Evaluate Reverse Polish Notation -> dont know
+
+152. Maximum Product Subarray(*/) -> we can solve this using sliding window
+
+162. Find Peak Element -> by using binary search,while(i<j) mid = i+j/2 ; if(nums[i]<nums[i+1]) return i ; if(nums[mid]>nums[mid+1]) j =mid; else i=mid+1; atlast return i;
+
+169. Majority Element -> easy by using map
+
+174. Dungeon Game -> dont know
+
+179. Largest Number -> use a static bool function in the sort, static bool compare(int &a,int &b)->return to_string(a)
++to_string(b)>to_string(b)+to_string(a);in main fun use sort(,,compare) then in result string add the values of sorted vec like ans = ans+to_string(nums[i]) finally return ans;
+
+188. Best Time to Buy and Sell Stock IV -> dont know
+
+189. Rotate Array-> k = k%n; reverse(entire), reverse(nums.begin(),nums.begin()+k), reverse(nums.begin()+k,nums.end()
+
+200. Number of Islands -> dont know
+
+212. Word Search II -> dotn know
+
+217. Contains Duplicate -> easy, many methods, map or sort and check for dups
+
+218. The Skyline Problem -> dont know
+
+219. Contains Duplicate II -> uze map and check for the constraints
+
+229. Majority Element II -> use map, easy
+
+238. Product of Array Except Self -> concept 2*4*6/6 == (total product)/(current value) == remaining product
+use two variables multi = nums[0] (for entire product value neglecting 0) , multi2 = 1 (for remaining product excluding nums[0]; and a variable c for counting zeros; for(i=1->n) if(nums[i]!=0) multi = multi*nums[i] same for multi2; else c=c+1; then in another loop if(c==0) return multi/nums[i]; if(c==1) if(nums[i]==0){ if(nums[0]==0) push muti2 else push multi,} else push(0) else push(0); (coz more 1 zeros all product values are 0)
+
+239. Sliding Window Maximum(*/) -> not optimal, but works for medium no.of.testcases , use simple two for loops
+
+268. Missing number -> use of xor, x1,x2=0 for (i=0 -> <=n) x1 = x1^i; (xor of n elements), for(i=0->n) x2 = x2^nums[i] , finally return x1^x2 it will give the missing value; another way is by using the sum of n natural numbers
+
+283. Move first -> Zeroes find the 1st zeros's index (j) then for(int i=1->n) if(nums[i]!=0)swap(i,j) j++
+
+287. Find the Duplicate Number -> using map easy
+
+312. Burst Balloons -> dont know
+
+321. Create Maximum Number -> dont know
+
+329. Longest Increasing Path in a Matrix -> dont know
+
+347. Top K Frequent Elements -> (*/)dont know
+
+349. Intersection of Two Arrays -> sort both, while(i<n1 && j<n2) if(greater)increment respectively, check for duplicates , then at last else push(n1[i]) i++;j++
+
+350. Intersection of Two Arrays II -> without checking dups
+
+354. Russian Doll Envelopes -> dont know
+
+448. Find All Numbers Disappeared in an Array -> dont know
+
+455. Assign Cookies -> similar like intercestion , constraints only change
+
+463. Island Perimeter -> dont know
+
+474. Ones and Zeroes(*/) -> use of dp
+
+477. Total Hamming Distance(*/) -> need to see
+
+485. Max Consecutive Ones -> for(i=0->n) if(nums[i]==0) cnt++;else cnt=0; maxi = max(maxi,cnt)
+
+493. Reverse Pairs -> dont know
+
+500. Keyboard Row -> easy but need to see
+ 
+
+_____________________________________________________________________________________________________________________
+
+Srings:
+-------
+
+3. Longest Substring Without Repeating Characters -> sliding window , create a hash vect of (256,-1), while(r<n) v[s[r]] = r, len = max(len,l-r+1), r++;  if(v[s[r]]!=-1) l = max(l, v[s[r]] +1) ;
+
+5. Longest Palindromic Substring ->(*/)
+
+8. String to Integer (atoi) -> 1st skip the spaces, then flag signs, then start to traverse while(i<s.length()) if(s[i]>='0' && s[i]<='9')  ans=ans*10+(s[i]-'0'); ; then solve the constraints at last return sign*ans;
+
+10. Regular Expression Matching -> dont know
+
+12. Integer to Roman -> take two vects, 1. fro storing the roman string and 2. for storing value corresponding to it, intialize an ans string, while(num>=values[i]) ans += roman[i], num -= values[i]  atlast return ans;
+
+13. Roman to Integer -> create a val function , in that use switchcase to assign val accorsding to char, then in main initialize int res = 0 , iterate through, if(s[i]<s[i+1] res -= val[s[i]] ,else res+=val[s[i]] atlast return res;
+
+14. Longest Common Prefix -> making 1st word as ref, nested loop of columns(i=0->w){if(strs[0][i]=='/0' return s; rows(j=1->n){if(strs[0][i]!= strs[j][i] return s;} s += strs[0][i]; } atlast return s;
+
+20. Valid Parentheses -> easy, basic impelentation using stack, as of dsa in c, (2nd sem)
+
+28. Find the Index of the First Occurrence in a String -> dont know   
+
+30. Substring with Concatenation of All Words -> dont know
+
+32. Longest Valid Parentheses -> using stack, only two chars'(' or ')', push the current index of a open bracket, then if a close comes, pop out, if st empty, (not valid) so push(i); else maxl = max(maxl,i-st.top()) ;  
+ex code: st.push(-1); maxl=0; iterate thorugh, if(s[i]=='(') st.push(i) .....
+
+44. Wildcard Matching -> dont know  
+
+58. Length of Last Word -> many methods, easy
+
+65. Valid Number -> dont know
+
+87. Scramble String -> dont know
+
+115. Distinct Subsequences -> dont know
+
+125. Valid Palindrome -> check start and end , skip non alphanumeric characters...
+
+126. Word Ladder II -> dont know
+
+127. Word Ladder -> dont know
+
+151. Reverse Words in a String -> reverse the entire string, add " " to s; then cal size;int i,k=0; while(i<n) if(!=space)i++, else(reverse(+k,+i) k = i+1;i++;  remove front and last spaces at firsty;
+
+214. Shortest Palindrome -> dont know
+
+227. Basic Calculator II -> dont know
+
+242. Valid Anagram -> sort two strings, if they are equal return 1
+
+301. Remove Invalid Parentheses -> dont know
+
+344. Reverse String -> just reverse
+
+383. Ransom Note -> check for the values in two, dont know exactly but you can do it;
+
+412. Fizz Buzz -> just few if statements
+
+415. Add Strings -> simple, gowith ur while loop
+
+424. Longest Repeating Character Replacement -> sliding window
+
+459. Repeated Substring Pattern -> easy but need to do;
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
